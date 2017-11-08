@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html"%}
+<div class="container">
+  <div class="blog-header">
+    <h1 class="blog-title">{{ article.title }}</h1>
+    <p class="lead blog-description"> The first blog created by Kelly</p>
+  </div>
+  <div class ="row">
+    <div class="col-sm-8">
+      <div class="blog-post">
+
+        <p>{{article.content}}</p>
+
+      </div>
+    </div>
+    <div class="col-sm-43 col-sm-offset-1 blog-sidebar">
+      <div class="sidebar-module">
+        <h4>Hashtags</h4>
+        <ol class="list-unstyled">
+          {% for hashtag in hashtag_list %}
+          <li>#{{hashtag}}</il>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
