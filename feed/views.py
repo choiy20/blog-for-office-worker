@@ -12,7 +12,7 @@ def index(request):
     # pass라고 끝내면 index에 해당하는 부분을 구현하지 않겠다 (의도적으로 비워두었다라고 말해주는거)
 
 def detail(request):
-    pass
+    return render(request, "detail.html", ctx)
 
 # def about(request):
 #     pass
