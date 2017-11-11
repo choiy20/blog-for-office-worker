@@ -3,11 +3,12 @@
 {% include "navbar.html"%}
 <div class="container">
   <div class="blog-header">
-    <h1 class="blog-title">Kelly's Blog</h1>
-    <p class="lead blog-description"> The first blog created by Kelly</p>
+    <h1 class="blog-title">K E L L Y ' S &nbsp; S T O R Y &nbsp; 2 0 1 7</h1>
+    <h2 class="lead blog-description"><p></p>>> DONE IS BETTER THAN PERFECT <<</h2>
+
   </div>
   <div class ="row">
-    <div class="col-sm-8">
+    <div class="col-sm-5 col-sm-7">
       <div class="blog-post">
         {% for article in article_list %}
         <h2 class="blog-post-title">
@@ -19,12 +20,20 @@
         {% endfor %}
       </div>
     </div>
-    <div class="col-sm-43 col-sm-offset-1 blog-sidebar">
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
       <div class="sidebar-module">
+        <div class="sidebar-module">
+          <h4>Category</h4>
+          <ol class="list-unstyled">
+            <li><a href="/">all</a></il>
+            {% for alias, category in category_list %}
+            <li><a href="/?category={{ alias }}">{{category}}</a></il>
+            {% endfor %}
+        </div>
         <h4>Hashtags</h4>
         <ol class="list-unstyled">
           {% for hashtag in hashtag_list %}
-          <li>#{{hashtag}}</il>
+          <li><a href="/?hashtag={{ hashtag.name }}">#{{hashtag}}</a></il>
           {% endfor %}
       </div>
     </div>

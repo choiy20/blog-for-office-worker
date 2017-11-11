@@ -4,22 +4,42 @@
 <div class="container">
   <div class="blog-header">
     <h1 class="blog-title">{{ article.title }}</h1>
-    <p class="lead blog-description"> The first blog created by Kelly</p>
+    <p class="lead blog-description"> by kelly</p>
   </div>
   <div class ="row">
-    <div class="col-sm-8">
+    <div class="col-sm-6 col-sm-6">
       <div class="blog-post">
-
         <p>{{article.content}}</p>
+      </div>
+      <div class="comments-form">
+        {% for comment in article.article_comments.all %}
+          <div>"{{comment.username}}" says: {{comment.content}}</div>
+        {% endfor %}
+      </div>
+      <div class="reply-form">
+        <form class="form-inline" method="post" action="">
+          {% csrf_token %}
+          <div>
+            <div class="form-group">
+              <input placeholder="Name" class="form-control" name = "username" />
+            </div>
+            <div class="form-group">
+              <input placeholder="Content" class="form-control" name = "content" />
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" > Submit </button>
+            </div>
+          </div>
+        </form>
 
       </div>
     </div>
-    <div class="col-sm-43 col-sm-offset-1 blog-sidebar">
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
       <div class="sidebar-module">
         <h4>Hashtags</h4>
         <ol class="list-unstyled">
           {% for hashtag in hashtag_list %}
-          <li>#{{hashtag}}</il>
+          <li><a href="/?hashtag={{ hashtag.name }}">#{{hashtag}}</a></il>
           {% endfor %}
       </div>
     </div>
