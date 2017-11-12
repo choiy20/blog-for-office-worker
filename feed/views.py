@@ -13,7 +13,6 @@ def index(request):
         article_list = Article.objects.all()
     elif category:
         article_list = Article.objects.filter(category=category)
-
     else:
         article_list = Article.objects.filter(hashtag__name=hashtag)
 
@@ -44,7 +43,6 @@ def index(request):
 
 def detail(request, article_id):
     # GET & POST
-
     article = Article.objects.get(id=article_id)
     # comment_list = Comment.objects.filter(article__id=article_id)
     # comment_list = article.article_comments.all()
